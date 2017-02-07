@@ -3,11 +3,13 @@ package counting.controller;
 import counting.view.CountingFrame;
 import counting.model.Counting;
 import javax.swing.JOptionPane;
+import counting.model.Timer;
 
 public class CountingController 
 {
 	private CountingFrame baseFrame;
 	private Counting countingTool;
+	private Timer mathTimer;
 	
 	public void start()
 	{
@@ -21,8 +23,10 @@ public class CountingController
 		if(isValid(input))
 		{
 			factorialInfo += Counting.calculateFactorial(Integer.parseInt(input));
-			
 		}
+		
+		mathTimer.stopTimer();
+		factorialInfo += "\n" + mathTimer.toString();
 		
 		return factorialInfo;
 	}

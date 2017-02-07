@@ -21,9 +21,19 @@ public class CountingPanel extends JPanel
 		this.baseController = baseController;
 		this.baseLayout = new SpringLayout();
 		this.textArea = new JTextArea(5, 15);
-		this.textField = new JTextField(15);
-		this.factButton = new JButton("fact");
 		this.fibButton = new JButton("fib");
+		this.factButton = new JButton("fact");
+		this.textField = new JTextField(15);
+		
+		baseLayout.putConstraint(SpringLayout.NORTH, textArea, 47, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.WEST, textArea, 126, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, textField, 6, SpringLayout.SOUTH, textArea);
+		baseLayout.putConstraint(SpringLayout.WEST, textField, 0, SpringLayout.WEST, textArea);
+		baseLayout.putConstraint(SpringLayout.EAST, textField, 180, SpringLayout.WEST, textArea);
+		baseLayout.putConstraint(SpringLayout.EAST, factButton, 0, SpringLayout.EAST, textArea);
+		baseLayout.putConstraint(SpringLayout.NORTH, factButton, 0, SpringLayout.NORTH, fibButton);
+		baseLayout.putConstraint(SpringLayout.NORTH, fibButton, 28, SpringLayout.SOUTH, textField);
+		baseLayout.putConstraint(SpringLayout.WEST, fibButton, 0, SpringLayout.WEST, textArea);
 		
 		setupPanel();
 		setupLayout();
@@ -57,6 +67,7 @@ public class CountingPanel extends JPanel
 					}
 				});
 		fibButton.addActionListener(new ActionListener()
+		
 				{
 					public void actionPerformed(ActionEvent click)
 					{

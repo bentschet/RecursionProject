@@ -31,6 +31,24 @@ public class CountingController
 		return factorialInfo;
 	}
 	
+	public String transferFibonacci(String input)
+	{
+		String fibonacciInfo = "";
+		
+		mathTimer.resetTimer();
+		mathTimer.startTimer();
+		
+		if(isValid(input))
+		{
+			fibonacciInfo += Counting.calculateFibonacci(Integer.parseInt(input));
+		}
+		
+		mathTimer.stopTimer();
+		fibonacciInfo += "\n" + mathTimer;
+		
+		return fibonacciInfo;
+	}
+	
 	private boolean isValid(String testValue)
 	{
 		try

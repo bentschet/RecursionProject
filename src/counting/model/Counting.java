@@ -2,7 +2,7 @@ package counting.model;
 
 public class Counting 
 {
-	public int calculateFactorial(int currentNumber)
+	public static int calculateFactorial(int currentNumber)
 	{
 		if(currentNumber == 0 || currentNumber == 1)
 		{
